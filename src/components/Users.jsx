@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
+import User from "./User"
 
 const Users = () => {
 	const [users, setUsers] = useState([])
@@ -19,11 +20,11 @@ const Users = () => {
 
 	return (
 		<div>
-			<h2>Users </h2>
-			{users.map((user, index) => {
+			<h2 className="my-3">Fetching Fake Users </h2>
+			{users.map(user => {
 				return (
-					<div key={index}>
-						<li>{user.name}</li>
+					<div key={user.id}>
+						<User user={user} />
 					</div>
 				)
 			})}
